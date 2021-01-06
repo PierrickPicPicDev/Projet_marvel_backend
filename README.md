@@ -4,7 +4,7 @@
 
 Développer un programme pour résoudre le challenge Marvel.
 
-## Techos/ Outils
+## Techos / Outils
 
 - Architecture micro-services
 - Bdd : PostgreSQL version 4.24 administré par pgAdmin4
