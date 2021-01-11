@@ -21,7 +21,7 @@ public class HerosController {
     }
 
     @PostMapping("/heros")
-    public void createHeros(@RequestBody Heros heros) {
+    public void addHeros(@RequestBody Heros heros) {
         herosDao.save(heros);
     }
 

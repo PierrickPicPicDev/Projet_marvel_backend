@@ -1,11 +1,9 @@
 package com.experience.marvel.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "heros")
+@Table(name = "characters")
 public class Heros {
 
     @Id
@@ -20,11 +18,6 @@ public class Heros {
 
     @Column(name = "description")
     private String description;
-
-    @ManyToOne
-    @JoinColumn(name = "id_super_team")
-    @JsonIgnoreProperties("heros")
-    private SuperTeam superteam;
 
     public Heros() {
     }
@@ -61,11 +54,4 @@ public class Heros {
         this.description = description;
     }
 
-    public SuperTeam getSuperteam() {
-        return superteam;
-    }
-
-    public void setSuperteam(SuperTeam superteam) {
-        this.superteam = superteam;
-    }
 }
