@@ -1,9 +1,12 @@
 package com.experience.marvel.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Entity
-@Table(name = "characters")
+@Table(name = "heros")
 public class Heros {
 
     @Id
@@ -19,7 +22,15 @@ public class Heros {
     @Column(name = "description")
     private String description;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "hero_comic",
+            joinColumns = @JoinColumn(name = "id_heros"),
+            inverseJoinColumns = @JoinColumn(name = "id_comic"))
+    private List<Comic> comics;
+
     public Heros() {
+        this.comics = new ArrayList<>();
     }
 
     public Integer getId_heros() {
@@ -54,4 +65,11 @@ public class Heros {
         this.description = description;
     }
 
+    public List<Comic> getComics() {
+        return comics;
+    }
+
+    public void setComics(List<Comic> comics) {
+        this.comics = comics;
+    }
 }
